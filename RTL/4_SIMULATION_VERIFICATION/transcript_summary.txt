@@ -1,0 +1,14 @@
+Test 1: CPUtest1.dat
+Expected PC: 0x17
+Observed PC: 0x17
+Result: PASS
+
+Test 2: CPUtest2.dat
+Expected PC: 0x10
+Observed PC: 0x10
+Result: PASS
+
+Test 3: CPUtest3.dat
+Expected PC: 0x0C
+Observed PC: 0x0C
+Result: PASS
