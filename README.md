@@ -7,18 +7,66 @@ The CPU is instruction-driven, controlled by a finite state control unit, and su
 
 ---
 
-## 🔍 Patterns Detected
-- 1101  
-- 1010  
-- 1001  
-- 0110  
 
-## 🗂 Repository Structure
-RTL/1_RTL_code/seq_det.sv               → RTL design
+# ✅ Diagnostic Test Programs
+## 🧪 Test 1 – Basic Instruction Test
 
-RTL/2_TESTBENCH/tb_seq_det.sv           → Testbench
+File: CPUtest1.dat
 
-RTL/3_SIMULATION_VERIFICATION/README.md → Simulation results
+Tests: HLT, ADD, AND, XOR, LDA, STO, JMP
+
+Expected Halt PC: 0x17
+
+Result: ✅ PASS
+
+## 🧪 Test 2 – Advanced Instruction Test
+
+File: CPUtest2.dat
+
+Tests extended instruction behavior
+
+Expected Halt PC: 0x10
+
+Result: ✅ PASS
+
+## 🧪 Test 3 – Fibonacci Program
+
+File: CPUtest3.dat
+
+Computes Fibonacci sequence (0 → 144)
+
+Stores results in memory
+
+Expected Halt PC: 0x0C
+
+Result: ✅ PASS
+
+---
+
+# ✔ Pass/Fail Criteria
+
+A test passes if:
+
+halt signal is asserted
+
+Program Counter matches expected halt address 
+
+---
+
+# 🗂 Repository Structure
+RTL/1_RTL_code/top_cpu.sv                   → TOP RTL design
+
+RTL/README.md                               → RTL EXPLAINATION
+
+RTL/2_TESTBENCH/cpu_test.sv                 → Testbench
+
+RTL/2_TESTBENCH/test.do                     → format_view
+
+RTL/3_DOCS                                  → block_diagram of cpu : state_diagram of controller : state_table of controller
+
+RTL/4_SIMULATION_VERIFICATION/README.md     → Simulation results
+
+RTL/4_SIMULATION_VERIFICATION/transcript_summary.txt     → Simulation results summary
 
 RTL/4_SCHEMATIC/netlist.pdf             → Schematic
 
@@ -31,9 +79,9 @@ LOGIC_SYNTHESIS/PPA_Reports             → PPA Analysis
 
 ## ▶ Simulation
 To run in ModelSim:
-vsim -do 3_SIMULATION_VERIFICATION/seq.do
+vsim -do RTL/4_SIMULATION_VERIFICATION/test.do
 
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 Aryan Mahajan
 
