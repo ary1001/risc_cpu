@@ -1,0 +1,30 @@
+# CPUtest1 - BASIC CPU DIAGNOSTIC PROGRAM 
+# 
+# THIS TEST SHOULD HALT WITH THE PC AT 17 hex
+# 
+#      TIME       PC    INSTR    OP   ADR   DATA
+# 
+#   ----------    --    -----    --   ---   ----
+# 
+#      95.0 ns    00    JMP      7    00     xx     fe
+#     255.0 ns    1e    JMP      7    1e     00     e3
+#     415.0 ns    03    LDA      5    03     00     ba
+#     575.0 ns    04    SKZ      1    04     00     20
+#     735.0 ns    06    LDA      5    06     00     bb
+#     895.0 ns    07    SKZ      1    07     ff     20
+#    1055.0 ns    08    JMP      7    08     ff     ea
+#    1215.0 ns    0a    STO      6    0a     ff     dc
+#    1375.0 ns    0b    LDA      5    0b     ff     ba
+#    1535.0 ns    0c    STO      6    0c     00     dc
+#    1695.0 ns    0d    LDA      5    0d     00     bc
+#    1855.0 ns    0e    SKZ      1    0e     00     20
+#    2015.0 ns    10    XOR      4    10     00     9b
+#    2175.0 ns    11    SKZ      1    11     ff     20
+#    2335.0 ns    12    JMP      7    12     ff     f4
+#    2495.0 ns    14    XOR      4    14     ff     9b
+#    2655.0 ns    15    SKZ      1    15     00     20
+#    2815.0 ns    17    HLT      0    17     00     00
+# 
+# CPU TEST 1 PASSED
+# ** Note: $finish    : C:/intelFPGA/20.1/work/aryan/cpu_test.sv(125)
+#    Time: 2870 ns  Iteration: 0  Instance: /cpu_test
