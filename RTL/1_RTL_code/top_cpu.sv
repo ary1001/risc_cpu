@@ -53,7 +53,7 @@ module top_cpu
   // -------------------------------------------------
   // Memory
   // -------------------------------------------------
-  internal_mem mem1 (
+  memory mem1 (
     .clk      (~cntrl_clk),
     .read     (mem_rd),
     .write    (mem_wr),
@@ -127,5 +127,6 @@ module top_cpu
   );
 
 endmodule : top_cpu
+
 
 
