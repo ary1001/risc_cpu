@@ -1,11 +1,37 @@
 # Simple 8-bit RISC-Based CPU (SystemVerilog)
 
-## Overview
-This project implements a **simple RISC-based CPU** using **SystemVerilog**, designed to demonstrate the complete **fetch–decode–execute** cycle using modular RTL components.
 
-The CPU is instruction-driven, controlled by a finite state control unit, and supports basic arithmetic, logical, memory, and control-flow instructions.
+## 📌 Overview
+This repository contains a **cycle-accurate SystemVerilog implementation of a simple RISC-style CPU**, designed with a **centralized control FSM** and verified using **ModelSim**.  
+The CPU follows a **multi-cycle fetch–decode–execute architecture**, prioritizing clarity of control, timing determinism, and verification transparency.
+
+The design is suitable for:
+- RTL / ASIC learning
+- CPU microarchitecture understanding
+- Interview and portfolio demonstration
+- Educational and diagnostic program execution
 
 ---
+
+## ⚙️ Performance & Timing Characteristics
+
+### Clocking
+- **Master Clock Period**: 1 ns  
+- **Control Clock (`ctrl_clk`)**: Derived from master clock
+
+### Instruction Timing
+- **Instruction Latency**:  
+  - **8 control clock cycles**  
+  - **16 master clock cycles**
+
+- **Instruction Throughput**:  
+  - One instruction completes every **8 control clock cycles**  
+  - Throughput equals latency (non-pipelined design)
+
+> ⚠️ This is a **multi-cycle, non-pipelined CPU**, optimized for control clarity rather than peak IPC.
+
+---
+
 
 
 # ✅ Diagnostic Test Programs
@@ -56,7 +82,7 @@ Program Counter matches expected halt address
 # 🗂 Repository Structure
 RTL/1_RTL_code/top_cpu.sv                   → TOP RTL design
 
-RTL/README.md                               → RTL EXPLAINATION
+RTL/README.md                               → CPU ARCHITECTURE EXPLAINATION
 
 RTL/2_TESTBENCH/cpu_test.sv                 → Testbench
 
@@ -76,12 +102,19 @@ LOGIC_SYNTHESIS/NETLIST                 → Synthesised netlist and schematic
 
 LOGIC_SYNTHESIS/PPA_Reports             → PPA Analysis
 
-
-## ▶ Simulation
-To run in ModelSim:
-vsim -do RTL/4_SIMULATION_VERIFICATION/test.do
-
+---
 
 # 👨‍💻 Author
 Aryan Mahajan
+
+---
+
+## ▶️ How to Run Simulation
+
+```tcl
+vlog *.sv
+vsim tb_cpu
+run -all
+
+
 
